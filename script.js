@@ -16,7 +16,7 @@ createApp({
 
   },
   mounted() {
-    this.getRandomNumber()
+    
 
   },
 
