@@ -2,26 +2,35 @@ const { createApp } = Vue;
 
 
 
-//option object.
+
 createApp({
-  data() { //metodo data()
+  data() { 
     return {
       apiLink: 'https://flynn.boolean.careers/exercises/api/random/mail',
+      email : [],
+      maxEmail : 10
 
 
-    }
+    };
   },
   methods: {
-   getRandomMail() {
+    getRandomMail() {
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
           console.log(response);
+          //console.log(response); 
+          this.email.push(response.data.response);
         })
       }
 
   },
-  mounted() {
-    this.getRandomMail();
+  computed:{
 
   },
+  mounted() {
 
-}).mount('#app')
+  },
+  created(){
+    this.getRandomMail();
+  }
+
+}).mount('#app');
